@@ -9,6 +9,7 @@
 **yuuturn5** の静的プロフィールページ。
 
 スタック: **Astro**(静的出力)。Node.js `>=22.12.0` が必要。
+GitHub リポジトリ: https://github.com/yuuturn/yuutrn5-profile-page (public、デフォルトブランチ `main`)
 
 ## 確定済みの決定事項(再議論しない)
 

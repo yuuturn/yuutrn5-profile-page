@@ -35,6 +35,12 @@ SNS ハンドルは `yuuturn5` だが、GitHub のユーザー名は **`yuuturn`
 - preview: `npm run preview`。
 - Cloudflare Pages 設定: ビルドコマンド `npm run build`、出力ディレクトリ `dist`。
 
+## ブランチ戦略
+
+- **Conventional Branch** 形式でブランチを切り出す(例: `feature/add-ogp`、`fix/meta-description`)。プレフィックスは Conventional Commits の type に準拠(`feature/`、`fix/`、`docs/`、`chore/`、`refactor/` など)。
+- `main` に直接 commit/push はしない。作業は必ずブランチ上で行い、push 後 `gh pr create` で PR を作成する。
+- **マージはユーザーが行う**。エージェントはマージや `main` への直接 push をしない。PR 作成後はレビューを待つ。
+
 ## 本番環境
 
 - カスタムドメイン: **https://profile.yfujii.net**(第一 URL)

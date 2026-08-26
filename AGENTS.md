@@ -34,3 +34,9 @@ SNS ハンドルは `yuuturn5` だが、GitHub のユーザー名は **`yuuturn`
 - build: `npm run build` → `dist/` に完全静的出力。
 - preview: `npm run preview`。
 - Cloudflare Pages 設定: ビルドコマンド `npm run build`、出力ディレクトリ `dist`。
+
+## 本番環境
+
+- カスタムドメイン: **https://profile.yfujii.net**(第一 URL)
+- workers.dev: https://yuutrn5-profile-page.yuuturn5.workers.dev
+- `main` への push で Cloudflare Pages が自動ビルド・デプロイする(Git 統合)。

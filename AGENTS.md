@@ -9,12 +9,13 @@
 **yuuturn5** の静的プロフィールページ。
 
 スタック: **Astro**(静的出力)。Node.js `>=22.12.0` が必要。
+Node バージョンは `.node-version`(22.23.1)で固定しており、Cloudflare Pages のビルド環境にも適用される。Node を更新する際は `.node-version` も忘れずに更新すること。
 GitHub リポジトリ: https://github.com/yuuturn/yuutrn5-profile-page (public、デフォルトブランチ `main`)
 
 ## 確定済みの決定事項(再議論しない)
 
 - ホスティング: **Cloudflare Pages**(GitHub Pages は使わない)。
-- スタック: 静的サイトジェネレータ。**Astro** を第一候補とする。
+- スタック: 静的サイトジェネレータ。**Astro**(採用済み)。
 - 出力は完全に静的であること。サーバーサイドランタイムは使わない。
 
 ## ハンドル名の罠
@@ -34,6 +35,12 @@ SNS ハンドルは `yuuturn5` だが、GitHub のユーザー名は **`yuuturn`
 - build: `npm run build` → `dist/` に完全静的出力。
 - preview: `npm run preview`。
 - Cloudflare Pages 設定: ビルドコマンド `npm run build`、出力ディレクトリ `dist`。
+
+## favicon
+
+- 正は `public/favicon.svg`(モダンブラウザ用)。`public/favicon.png` は Safari 用フォールバックで、SVG から生成した PNG。
+- `favicon.ico` は廃止済み。SVG + PNG の2本立てで運用する。
+- PNG の再生成手順: `qlmanage -t -s 512 -o <dir> public/favicon.svg` で 512px の PNG を生成し、`sips -Z 180` で 180px に縮小して `public/favicon.png` に置き換える。
 
 ## ブランチ戦略
 

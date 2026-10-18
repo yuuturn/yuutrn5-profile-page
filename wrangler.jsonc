@@ -1,0 +1,11 @@
+{
+	// Cloudflare Workers Builds の deploy コマンド(`npx wrangler versions upload`)が
+	// 配信対象を解決できるようにするための設定。
+	// このプロジェクトはスクリプトを持たず、`./dist` の静的アセットのみを配信する。
+	"$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+	"name": "yuutrn5-profile-page",
+	"compatibility_date": "2026-10-18",
+	"assets": {
+		"directory": "./dist"
+	}
+}

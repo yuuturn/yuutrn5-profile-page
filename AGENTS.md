@@ -9,12 +9,12 @@
 **yuuturn5** の静的プロフィールページ。
 
 スタック: **Astro**(静的出力)。Node.js `>=22.12.0` が必要。
-Node バージョンは `.node-version`(22.23.1)で固定しており、Cloudflare Pages のビルド環境にも適用される。Node を更新する際は `.node-version` も忘れずに更新すること。
+Node バージョンは `.node-version`(22.23.1)で固定しており、Cloudflare Workers Builds のビルド環境にも適用される。Node を更新する際は `.node-version` も忘れずに更新すること。
 GitHub リポジトリ: https://github.com/yuuturn/yuutrn5-profile-page (public、デフォルトブランチ `main`)
 
 ## 確定済みの決定事項(再議論しない)
 
-- ホスティング: **Cloudflare Pages**(GitHub Pages は使わない)。
+- ホスティング: **Cloudflare Workers**(Workers Builds の Git 連携でビルドし、静的アセットとして配信する。GitHub Pages は使わない)。
 - スタック: 静的サイトジェネレータ。**Astro**(採用済み)。
 - 出力は完全に静的であること。サーバーサイドランタイムは使わない。
 
@@ -34,7 +34,7 @@ SNS ハンドルは `yuuturn5` だが、GitHub のユーザー名は **`yuuturn`
 - dev: `npm run dev`(フォアグラウンド)/ `npx astro dev --background` でバックグラウンド起動。後者は `npx astro dev stop|status|logs` で管理する。
 - build: `npm run build` → `dist/` に完全静的出力。
 - preview: `npm run preview`。
-- Cloudflare Pages 設定: ビルドコマンド `npm run build`、出力ディレクトリ `dist`。
+- Cloudflare Workers Builds 設定: ビルドコマンド `npm run build`、デプロイコマンド `npx wrangler versions upload`。配信ディレクトリは `wrangler.jsonc` の `assets.directory`(`./dist`)で指定する。
 
 ## favicon
 
@@ -52,4 +52,4 @@ SNS ハンドルは `yuuturn5` だが、GitHub のユーザー名は **`yuuturn`
 
 - カスタムドメイン: **https://profile.yfujii.net**(第一 URL)
 - workers.dev: https://yuutrn5-profile-page.yuuturn5.workers.dev
-- `main` への push で Cloudflare Pages が自動ビルド・デプロイする(Git 統合)。
+- `main` への push で Cloudflare Workers Builds が自動ビルド・デプロイする(Git 統合)。

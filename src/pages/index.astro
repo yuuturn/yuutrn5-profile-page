@@ -120,8 +120,8 @@ const links = [
 	}
 
 	main {
-		/* viewport 幅に追従しつつ、大きい画面では読みやすい幅で止める */
-		width: min(100%, 30rem);
+		/* viewport 幅に追従しつつ、見出しが1行に収まる幅(実測: 見出し1行に約541px必要)で止める */
+		width: min(100%, 40rem);
 		/* 縦横とも auto マージンで中央寄せ(内容が画面より高くても上端が切れない) */
 		margin: auto;
 		/* padding 分が幅に加算されて横スクロールが出ないようにする */
@@ -175,6 +175,8 @@ const links = [
 	nav a {
 		display: flex;
 		align-items: center;
+		/* アイコンと文字のまとまりをブロック中央に配置する */
+		justify-content: center;
 		gap: clamp(0.75rem, 3.5vw, 1rem);
 		min-height: 4.25rem;
 		padding: clamp(0.85rem, 3.8vw, 1.05rem) clamp(0.9rem, 4vw, 1.25rem);
@@ -183,7 +185,6 @@ const links = [
 		border-radius: 0.85rem;
 		text-decoration: none;
 		color: inherit;
-		text-align: left;
 		transition:
 			border-color 0.15s ease,
 			transform 0.15s ease;
@@ -206,6 +207,8 @@ const links = [
 	.text {
 		display: flex;
 		flex-direction: column;
+		/* 名前とハンドルも中央揃えにする */
+		align-items: center;
 		gap: 0.1rem;
 		min-width: 0;
 	}
